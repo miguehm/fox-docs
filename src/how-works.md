@@ -92,7 +92,7 @@ isInt = bool(argv[2])
 
 Reads command line arguments: `exponent` and `isInt`. These are used to define the size of the matrices and the type of matrix elements.
 
-## MPI Initialization:**
+## MPI Initialization
 
 ```python
 comm = MPI.COMM_WORLD  # get the communicator object
@@ -102,7 +102,7 @@ rank = comm.Get_rank() # rank of this process
 
 Initializes MPI communication, retrieves the total number of processes, and the rank of the current process.
 
-## Matrix Initialization on Rank 0:**
+## Matrix Initialization on Rank 0
 
 ```python
 if rank == 0:
@@ -129,7 +129,7 @@ MATRIX_SIZE, matrix_A, matrix_B, matrix_C = data  # unpack the data
 
 All processes receive the data using MPI broadcast.
 
-## Matrix Multiplication Loop:**
+## Matrix Multiplication Loop
 
 ```python
 start_time = perf_counter()
