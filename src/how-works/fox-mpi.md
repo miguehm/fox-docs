@@ -1,12 +1,10 @@
-# How Works
+# Fox MPI
 
 <!-- toc -->
 
-# How the code works
-
 We use MPI to parallelize the matrix multiplication of randomly generated squared matrices A and B, and it calculates the product matrix C. The matrices are distributed among processes, and each process computes a portion of the final result. The `MPI Allreduce` function is used to combine the partial results from all processes.
 
-## Imports
+# Imports
 
 ```python
 import os
@@ -18,7 +16,7 @@ from time import perf_counter
 
 The code imports necessary libraries, including `os`, `numpy`, `sys`, `mpi4py`, and `time`. `mpi4py` is used for MPI (Message Passing Interface) communication in parallel computing.
 
-## Check Operating System and Define Constants
+# Check Operating System and Define Constants
 
 ```python
 isLinux = os.name == 'posix'
@@ -33,7 +31,7 @@ if isLinux:
 
 On Linux, it imports resource-related functions to measure resource usage.
 
-## Command Line Arguments
+# Command Line Arguments
 
 ```python
 exponent = int(argv[1])
@@ -42,7 +40,7 @@ isInt = bool(argv[2])
 
 Reads command line arguments: `exponent` and `isInt`. These are used to define the size of the matrices and the type of matrix elements.
 
-## MPI Initialization
+# MPI Initialization
 
 ```python
 comm = MPI.COMM_WORLD  # get the communicator object
@@ -52,7 +50,7 @@ rank = comm.Get_rank() # rank of this process
 
 Initializes MPI communication, retrieves the total number of processes, and the rank of the current process.
 
-## Matrix Initialization on Rank 0
+# Matrix Initialization on Rank 0
 
 ```python
 if rank == 0:
@@ -70,7 +68,7 @@ else:
 
 On the master process (rank 0), it initializes matrices A, B, and C, and packs the data into a tuple (`data`). Other processes receive `None`.
 
-## Broadcast Data to All Processes
+# Broadcast Data to All Processes
 
 ```python
 data = comm.bcast(data, root=0)  # broadcast the data to all processes
@@ -79,7 +77,7 @@ MATRIX_SIZE, matrix_A, matrix_B, matrix_C = data  # unpack the data
 
 All processes receive the data using MPI broadcast.
 
-## Matrix Multiplication Loop
+# Matrix Multiplication Loop
 
 ```python
 start_time = perf_counter()
@@ -92,7 +90,7 @@ for x in range(MATRIX_SIZE):
 
 Each process calculates a row of the matrix C. The rows are distributed among processes, and the multiplication is performed locally.
 
-## MPI Allreduce
+# MPI Allreduce
 
 ```python
 comm.Allreduce(MPI.IN_PLACE, matrix_C, op=MPI.SUM)
@@ -100,7 +98,7 @@ comm.Allreduce(MPI.IN_PLACE, matrix_C, op=MPI.SUM)
 
 MPI Allreduce function is used to sum the rows of matrix C calculated by each process.
 
-## Print Results
+# Print Results
 
 ```python
 if rank == 0:
@@ -110,7 +108,3 @@ if rank == 0:
 ```
 
 The master process prints the execution time and, if on Linux, the RAM memory consumed.
-
-# Graphs
-
-pass

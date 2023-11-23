@@ -1,0 +1,1 @@
+# Processor and RAM info
