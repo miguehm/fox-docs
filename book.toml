@@ -3,7 +3,7 @@ authors = ["Jose Felipe Marcial Rojas", "Miguel Angel Hernandez Moreno"]
 language = "en"
 multilingual = false
 src = "src"
-title = "FOX python docs"
+title = "Fox MPI in python"
 
 [output.html]
 mathjax-support = true
