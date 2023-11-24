@@ -1,9 +1,10 @@
 # Linux Installation
 
-> For this installation we used:
-> - Arch Linux 2023.11.1 and Ubuntu 20.04 LTS
-> - Python 3.11.5
-> - pip 23.3.1
+For this installation we used:
+
+- Arch Linux 2023.11.1 and Ubuntu 20.04 LTS
+- Python 3.11.5
+- pip 23.3.1
 
 First, clone the [github repository](https://github.com/miguehm/fox-algorithm):
 
@@ -31,5 +32,3 @@ and install requirements
 ```bash
 pip install -r requirements.txt
 ```
-
-You need to have MPI installed. If you are using Windows, you can [download the installer](https://www.microsoft.com/en-us/download/details.aspx?id=57467) from the microsoft official page. If you are using Linux, you don't need to install anything.

@@ -65,7 +65,7 @@ print(perf_counter() - start_time)
 print(getrusage(RUSAGE_SELF).ru_maxrss) if isLinux else print(0)
 ```
 
-Prints the execution time and, if on Linux, the maximum resident set size.
+Prints the execution time and, if on Linux, the maximum peak ram registered during the execution.
 
 # Main Execution
 
