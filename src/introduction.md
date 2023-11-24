@@ -6,7 +6,7 @@
 
 The objective of this project is to show the **execution time and RAM usage** of the algorithm for different matrix sizes and number of processes. 
 
-The program will run the algorithm for all the matrix sizes \\( 2^x\ \forall\ x \in [n, m] \\) five times and will calculate the average execution time and RAM usage. The results will be used to generate a graph that will be saved in the `graphs` folder.
+The program will run the algorithm for all the matrix sizes \\( 2^x\ \forall\ x \in [n, m] \\) five times and will calculate the average execution time and RAM usage. The results will be used to generate a graph that will be saved in the `charts` folder.
 
 Developed by:
 
@@ -16,8 +16,8 @@ Developed by:
 ## TO DO
 - [ ] Add RAM measurement for Windows.
 - [x] Create CSV files with the results.
-- [x] Add a script to generate the graphs from the CSV files.
-- [ ] Add graphs to docs page.
+- [x] Add a script to generate the charts from the CSV files.
+- [ ] Add charts to docs page.
 
 ## References
 
