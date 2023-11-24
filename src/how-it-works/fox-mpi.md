@@ -104,7 +104,6 @@ MPI Allreduce function is used to sum the rows of matrix C calculated by each pr
 if rank == 0:
    print(perf_counter() - start_time)
    print(getrusage(RUSAGE_SELF).ru_maxrss) if isLinux else print(0)
-   format = '%d' if isInt else '%f'
 ```
 
-The master process prints the execution time and, if on Linux, the RAM memory consumed.
+The master process prints the execution time and the RAM memory usage if the operating system is Linux.
