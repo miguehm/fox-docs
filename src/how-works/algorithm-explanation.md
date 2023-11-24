@@ -2,52 +2,36 @@
 
 <!-- toc -->
 
-The Fox matrix multiplication algorithm is an efficient approach for multiplying large matrices divided into blocks. It is based on the technique of block matrix multiplication and is designed to make the most of parallelism in distributed computing architectures. Here's a step-by-step explanation of how to use the Fox matrix multiplication algorithm:
 
-Imagine you have two square matrices \\(A\\) and \\(B\\) of size \\(n \\times n\\), and you want to multiply them to obtain the matrix \\(C\\).
+## Checkerboard
 
-## Block Division of Matrices
+Most parallel matrix multiplication functions use a checkerboard distribution of the matrices. This means that the processes are viewed as a grid, and, rather than assigning entire rows or entire columns to each process, we assign small sub-matrices. For example, if we have four processes, we might assign the element of a 4x4 matrix as shown below, checkerboard mapping of a 4x4 matrix to four processes.
 
-Divide the square matrices \\(A\\), \\(B\\), and \\(C\\) into blocks. Suppose you decide to divide each matrix into blocks of size \\(b \\times b\\).
+![](./media/checkerboard.png) 
 
-## Distribution of Blocks Among Processors
+## Fox Algorithm
 
-Assign blocks of matrices \\(A\\) and \\(B\\) to different processors. Each processor will handle a set of blocks.
+Fox‘s algorithm is a one that distributes the matrix using a checkerboard scheme like the above.
 
-## Initialization
+In order to simplify the discussion, lets assume that the matrices have order \\(n\\), and the number of processes, \\(p\\), equals \\(n^2\\). Then a checkerboard mapping assigns \\(a_{ij}\\), \\(b_{ij}\\) , and \\(c_{ij}\\) to process (\\(i\\), \\(j\\)).
 
-Initialize matrix \\(C\\) on each processor with zeros.
+Fox‘s algorithm takes n stages for matrices of order n one stage for each term aik bkj in the dot product 
 
-## Main Loop
+Cij = ai0b0j + ai1b1i +. . . +ai,n−1bn−1,j
 
-Perform a main loop consisting of several steps:
+Initial stage, each process multiplies the diagonal entry of A in its process row by its element of B:
 
-### Local Multiplication
+Stage 0 on process(i, j): cij = aii bij
 
-Each processor multiplies its local blocks of \\(A\\) and \\(B\\) and accumulates the result in the corresponding blocks of \\(C\\).
+Next stage, each process multiplies the element immediately to the right of the diagonal of A by the element of B directly beneath its own element of B:
 
-### Communication Between Processors
+Stage 1 on process(i, j): cij = cij + ai,i+1bi+1,j
 
-Blocks of \\(A\\) and \\(B\\) are exchanged between processors in a circular fashion. This allows each processor to obtain the necessary blocks for local multiplications.
+In general, during the kth stage, each process multiplies the element k columns to the right of the diagonal of A by the element k rows below its own element of B:
 
-### Update Blocks of \\(A\\) and \\(B\\)
+Stage k on process(i, j): cij = cij + ai,i+k bi+k,
 
-After each iteration, update the blocks of \\(A\\) and \\(B\\) to contain the necessary blocks for the next iteration.
+## Example 3x3 Fox's Algorithm
 
-## Completion of the Main Loop
-
-Repeat the main loop until all blocks of matrix \\(C\\) have been calculated.
-
-## Results Collection
-
-After completing the main loop, each processor will have a portion of matrix \\(C\\). Use communication functions, such as MPI Allreduce, to combine and sum all parts of \\(C\\) across all processors.
-
-## Final Result
-
-The resulting matrix \\(C\\) contains the product of matrices \\(A\\) and \\(B\\).
-
-This approach leverages parallelization in distributed systems, where each processor performs independent calculations in parallel. The results are then combined to obtain the complete output matrix. The performance of this algorithm is particularly notable for large matrices.
-
-<!-- insert a graphs -->
 
 
