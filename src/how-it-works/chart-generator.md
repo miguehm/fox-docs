@@ -1,19 +1,10 @@
-# Graphs Generation
+# Charts Generator
 
 <!-- toc -->
 
 We have used the `matplotlib` and `manim` library to represent the comparison of the execution times and memory usage of the Fox algorithm with matrices of either integers or floats.
 
 # Matplotlib
-
-## Prompt for User Confirmation
-
-```python
-response = input('This will take a long time to run. Are you sure you want to continue? (y/n)\n')
-if response.lower() != 'y':
-   return
-```
-Before starting the computations, the user is prompted for confirmation if the specified exponents are large. If the user chooses not to continue, the function returns without further execution.
 
 ## Calculate Mean Times and Memory Usage
 
@@ -25,8 +16,8 @@ Calls the `data` function to obtain execution times and memory usage for sequent
 ## Prepare Data for Plotting
 
 ```python
-y_Time_MPI   = [np.mean(times_MPI[exponent]) for exponent in times_MPI]
-y_Time_SEC   = [np.mean(times_SEC[exponent]) for exponent in times_SEC]
+y_Time_MPI   = [np.mean(times_MPI [exponent]) for exponent in times_MPI ]
+y_Time_SEC   = [np.mean(times_SEC [exponent]) for exponent in times_SEC ]
 y_Memory_MPI = [np.mean(memory_MPI[exponent]) for exponent in memory_MPI]
 y_Memory_SEC = [np.mean(memory_SEC[exponent]) for exponent in memory_SEC]
 ```
