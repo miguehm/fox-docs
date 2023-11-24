@@ -6,7 +6,7 @@
     - [Fox in Secuencial](./how-works/fox-sec.md)
     - [Fox MPI](./how-works/fox-mpi.md)
     - [Time and Memory Measurement](./how-works/time-memory-measurement.md)
-    - [Graphs Generation](./how-works/graphs-generation.md)
+    - [Chart Generator](./how-works/chart-generator.md)
     - [Results](./how-works/results.md)
 - [Installation and Usage](./installation/README.md)
     - [Linux](./installation/linux.md)
