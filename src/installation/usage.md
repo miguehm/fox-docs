@@ -34,6 +34,13 @@ Usage: main.py [OPTIONS]
 │                           [default: 4]        │
 ╰───────────────────────────────────────────────╯
 ```
+## Default execution
+
+```bash
+python3 src/main.py
+```
+
+The execution will be done for the matrix of size \\(2^6\\) with 4 threads.
 
 ## Multiple matrix multiplication by range
 
@@ -41,7 +48,7 @@ Usage: main.py [OPTIONS]
 python3 src/main.py --min-exp 6 --max-exp 13
 ```
 
-The graphs with the results will be created in the `graphs` folder.
+The charts with the results will be created in the `charts` folder.
 
 ## Specify threads number
 
