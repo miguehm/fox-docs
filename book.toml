@@ -7,6 +7,7 @@ title = "Fox MPI in python"
 
 [output.html]
 mathjax-support = true
+git-repository-url = "https://github.com/miguehm/fox-algorithm"
 
 [preprocessor.toc]
 command = "mdbook-toc"
