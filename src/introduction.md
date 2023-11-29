@@ -8,16 +8,23 @@ The objective of this project is to show the **execution time and RAM usage** of
 
 The program will run the algorithm for all the matrix sizes \\( 2^x\ \forall\ x \in [n, m] \\) five times and will calculate the average execution time and RAM usage. The results will be used to generate a graph that will be saved in the `charts` folder.
 
-Developed by:
+<center>
+    <h2>Developed by</h2>
+<a href="https://github.com/miguehm/fox-algorithm/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=miguehm/fox-algorithm" />
+</a>
+    
+José Felipe Marcial Rojas. [Github](https://github.com/Felamar) <br/>
+Miguel Ángel Hernández Moreno. [Github](https://github.com/miguehm) 
+</center>
+<i class="fi fi-brands-github"></i>
 
-- José Felipe Marcial Rojas. [Github](https://github.com/Felamar) 
-- Miguel Ángel Hernández Moreno. [Github](https://github.com/miguehm) 
 
 ## TO DO
 - [ ] Add RAM measurement for Windows.
 - [x] Create CSV files with the results.
 - [x] Add a script to generate the charts from the CSV files.
-- [ ] Add charts to docs page.
+- [x] Add charts to docs page.
 
 ## References
 
